@@ -4,6 +4,8 @@
 1. git config --global user.name "Example Surname"
 2. git config --global user.email "your.email@gmail.com"
 
+gitk --all 启动一个图形界面
+
 ## 创建
 1. touch text.txt  创建文件
 2. mkdir book 创建文件夹
@@ -22,7 +24,8 @@
   a. git add .  添加当前目录的所有文件到缓存区
   b. git add -p 添加每个变化前，都会要求确认。对于同一个文件的多个变化，可以实现分次提交
 2. git commit -m "message"
-3. git push 推送到github
+3. git commit --amend -m "更改commit message"
+4. git push 推送到github
 
 git rm --cached book  停止追踪指定文件，但该文件会保留在工作区
 
