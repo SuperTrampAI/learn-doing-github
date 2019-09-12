@@ -26,6 +26,7 @@ gitk --all 启动一个图形界面
 2. git commit -m "message"
 3. git commit --amend -m "更改commit message"
 4. git push 推送到github
+5. git add . && git commit -m "More chaanges - typo in the commit message" 添加文件到仓库中，并commit
 
 git rm --cached book  停止追踪指定文件，但该文件会保留在工作区
 
@@ -73,3 +74,7 @@ git show  推出git show ：键入q
 2. git checkout .  恢复暂存区的所有文件到工作区
 3. git reset [file] 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
 4. git reset --hard 充值暂存区与工作区，与上一次commit保持一致
+
+git tag v1.0 打标签
+git log --pretty=oneline --abbrev-commit 查看历史提交记录
+git tag v0.9 f52c633 为指定哪一次的提交打标签，f52c633为commit id
