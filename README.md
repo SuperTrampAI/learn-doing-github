@@ -3,8 +3,14 @@
 ## 配置
 1. git config --global user.name "Example Surname"
 2. git config --global user.email "your.email@gmail.com"
+3. git config --global alias.add-commit '!git add . -A && git commit' 自定义组合命令 使用为： git add-commit -m "message"
+4. ssh-keygen -t rsa -C "youremail@example.com" windows下打开git bash创建ssh key
+  在用户主目录下有.ssh目录，文件名中有：id_rsa(私钥)和id_rsa.pub(公钥)
+
 
 gitk --all 启动一个图形界面
+git add . 是把文件修改添加到暂存区
+git commit 把暂存区的所有内容提交到当前分支
 
 ## 创建
 1. touch text.txt  创建文件
@@ -18,6 +24,7 @@ gitk --all 启动一个图形界面
 1. rm text1.txt 删除文件
 2. rm -r book 删除文件夹
 3. reset 清空base中的所有内容
+4. git rm  然后git commit
 
 ## push to github
 1. git add book  把文件加入到缓冲区
@@ -27,7 +34,10 @@ gitk --all 启动一个图形界面
 3. git commit --amend -m "更改commit message"
 4. git push 推送到github
 5. git add . && git commit -m "More chaanges - typo in the commit message" 添加文件到仓库中，并commit
+6. git commit -a -m "File book.txt is now removed" -a 的使用，用处在哪？
+7. git add -A .  用法暂时不明确
 
+git rm -r --cached .metadata
 git rm --cached book  停止追踪指定文件，但该文件会保留在工作区
 
 
@@ -42,21 +52,23 @@ $ git mv [file-original] [file-renamed]  改名文件，并且将这个改名放
 git show  推出git show ：键入q
 
 ## 查看
-1. git status 显示有变更的文件
+1. git status 显示有变更的文件/是否修改过文件
 2. git log 显示当前分支的版本历史
 3. git log --stat 显示commit历史，以及每次commit发成变更的文件
 4. git whatchanged 显示某个文件的版本历史，包括文件改名
 5. git log -p file 显示指定文件相关的每一次diff
 6. git log -5 --pretty --oneline 显示过去5次提交
+git log --pretty=oneline
 7. git shortlog -sn 显示所有提交过的用户，按提交次数排序
 8. git blame file 显示指定文件是什么人在什么时间修改过
 9. git diff 显示暂存区和工作区的代码差异
 10. git diff --cached README.md 显示暂存区和尚一个commit 的差异
+    git diff HEAD -- book.txt 查看工作区和版本库里面最新版本的区别
 11. git 显示指定文件相关的每一次diff []...[] 两次提交之间的差异
-12. git diff --shortstat "@{0 day ago}" 显示今天写了多少行代码
+12. git diff --shortstat "@{0 day ago}" 显示今天写了多少行代码/修改的内容
 13. git show 显示每次提交的元数据和内容的变化
 14. git show --name-only  显示某次提交发生变化的文件
-15. git reflog  显示当前分支的最近几次提交
+15. git reflog  显示当前分支的最近几次提交/查看命令历史
 16. git rebase 从本地master拉取代码更新当前分支
 
 ## 远程同步
@@ -70,11 +82,29 @@ git show  推出git show ：键入q
 8. git push --all 推送所有分支到远程仓库
 
 ## 撤销
-1. git checkout [file] 恢复暂存区的指定文件到工作区
+1. git checkout -- [file] 恢复暂存区的指定文件到工作区 /丢弃工作区的修改
+    a：file 修改后，还没有放到暂存区，撤销修改就回到和版本库一样
+    b：file已经添加到暂存区，又做了修改，撤销修改就回到调价到暂存区后的状态
 2. git checkout .  恢复暂存区的所有文件到工作区
 3. git reset [file] 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
-4. git reset --hard 充值暂存区与工作区，与上一次commit保持一致
+4. git reset --hard 重置暂存区与工作区，与上一次commit保持一致
+5. git checkout master 切换分支
+6. git reset --hard HEAD^ 回退到上一个版本
+7. git reset HEAD book.txt  把暂存区的修改撤销，重新回到工作区。HEAD 表示最新版本
+
+
 
 git tag v1.0 打标签
 git log --pretty=oneline --abbrev-commit 查看历史提交记录
 git tag v0.9 f52c633 为指定哪一次的提交打标签，f52c633为commit id
+git tag version1.6 -m 'version 1.6'
+
+git merge testing 合并分支
+
+git branch -d testing 删除分支
+
+git mergetool 解决冲突
+
+git rebase -i HEAD~7 合并最后的七个分支
+
+cat  book.txt 打开txt文件
