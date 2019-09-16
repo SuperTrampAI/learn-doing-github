@@ -2,6 +2,7 @@
 
 ## 创建
 1. touch text.txt  创建文件
+  vi texttxt 新建并进入编辑状态
 2. mkdir book 创建文件夹
 3. mv text.txt book 移动text.txt 到book目录下，前提是text.txt和book文件夹必须要同一个目录下
 ## 显示
