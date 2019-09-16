@@ -48,6 +48,7 @@ $ git mv [file-original] [file-renamed]  改名文件，并且将这个改名放
 2. git branch -r 列出所有远程分支
 3. git branch -a 列出所有本地分支和远程分支
 4. git branch supertramp 新建分支，但仍然停留在当前分支
+5. git branch --set-upstream-to=origin/dev dev 指定本地分支dev和远程分支origin/dev的链接
 
 ## 分支操作
 1. git checkout -b dev 创建分支并切换
@@ -85,6 +86,7 @@ git show  推出git show ：键入q
 6. git push 上传本地指定分支到远程仓库
 7. git push --force 强行推送当前分支到远程仓库，即使有冲突
 8. git push --all 推送所有分支到远程仓库
+9. git push origin master 把本地分支master推送对指定远程分支origin
 
 ## 撤销
 1. git checkout -- [file] 恢复暂存区的指定文件到工作区 /丢弃工作区的修改
@@ -102,10 +104,14 @@ git tag v1.0 打标签
 git log --pretty=oneline --abbrev-commit 查看历史提交记录
 git tag v0.9 f52c633 为指定哪一次的提交打标签，f52c633为commit id
 git tag version1.6 -m 'version 1.6'
+git tag -d v1.0 删除标签
+git push origin v1.0 推送一个标签到远程
+git push origin --tags 推送所以未推送到远程的本地标签
+1.git tag -d v1.0 2.git push origin :refs/tags/v1.0  删除已经推送到远程标签：先删除本地标签，再删除远程标签 
 
 git merge testing 合并分支
 
-git branch -d testing 删除分支
+git branch -d testing 删除分支/强行删除分支
 
 git mergetool 解决冲突
 
