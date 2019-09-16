@@ -6,6 +6,14 @@
 3. git config --global alias.add-commit '!git add . -A && git commit' 自定义组合命令 使用为： git add-commit -m "message"
 4. ssh-keygen -t rsa -C "youremail@example.com" windows下打开git bash创建ssh key
   在用户主目录下有.ssh目录，文件名中有：id_rsa(私钥)和id_rsa.pub(公钥)
+5. 设置别名：
+    git config --global alias.st status
+    git config --global alias.co checkout
+    git config --global alias.ci commit
+    git config --global alias.br branch
+    git config --global alias.last 'log -1' 显示最后一次提交的信息
+    git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"  
+
 
 
 gitk --all 启动一个图形界面
@@ -107,7 +115,7 @@ git tag version1.6 -m 'version 1.6'
 git tag -d v1.0 删除标签
 git push origin v1.0 推送一个标签到远程
 git push origin --tags 推送所以未推送到远程的本地标签
-1.git tag -d v1.0 2.git push origin :refs/tags/v1.0  删除已经推送到远程标签：先删除本地标签，再删除远程标签 
+1.git tag -d v1.0 2.git push origin :refs/tags/v1.0  删除已经推送到远程标签：先删除本地标签，再删除远程标签
 
 git merge testing 合并分支
 
