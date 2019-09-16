@@ -49,6 +49,9 @@ $ git mv [file-original] [file-renamed]  改名文件，并且将这个改名放
 3. git branch -a 列出所有本地分支和远程分支
 4. git branch supertramp 新建分支，但仍然停留在当前分支
 
+## 分支操作
+1. git checkout -b dev 创建分支并切换
+
 git show  推出git show ：键入q
 
 ## 查看
