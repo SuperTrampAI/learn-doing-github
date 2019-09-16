@@ -113,6 +113,8 @@ git rebase -i HEAD~7 合并最后的七个分支
 
 cat  book.txt 打开txt文件
 
+git stash 保存工作区的操作，在以为可以恢复该保存的操作
+
 ## vi操作
 1. i 进入编辑模式
 2. esc 进入命令模式
