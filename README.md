@@ -13,12 +13,7 @@
     git config --global alias.br branch
     git config --global alias.last 'log -1' 显示最后一次提交的信息
     git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"  
-
-
-
-gitk --all 启动一个图形界面
-git add . 是把文件修改添加到暂存区
-git commit 把暂存区的所有内容提交到当前分支
+6. gitk --all 启动一个图形界面
 
 ## 创建
 1. touch text.txt  创建文件
@@ -36,20 +31,15 @@ git commit 把暂存区的所有内容提交到当前分支
 
 ## push to github
 1. git add book  把文件加入到缓冲区
+   git add . 是把文件修改添加到暂存区
    git add .  添加当前目录的所有文件到缓存区
    git add -p 添加每个变化前，都会要求确认。对于同一个文件的多个变化，可以实现分次提交
-2. git commit -m "message"
+2. git commit -m "message"     git commit 把暂存区的所有内容提交到当前分支
 3. git commit --amend -m "更改commit message"
 4. git push 推送到github
 5. git add . && git commit -m "More chaanges - typo in the commit message" 添加文件到仓库中，并commit
 6. git commit -a -m "File book.txt is now removed" -a 的使用，用处在哪？
 7. git add -A .  用法暂时不明确
-
-git rm -r --cached .metadata
-git rm --cached book  停止追踪指定文件，但该文件会保留在工作区
-
-
-$ git mv [file-original] [file-renamed]  改名文件，并且将这个改名放入暂存区
 
 ## 分支 使用新命令 git switch 进行分支切换
 1. git branch 列出所有本地分支
@@ -64,6 +54,8 @@ $ git mv [file-original] [file-renamed]  改名文件，并且将这个改名放
 2. git merge dev 合并指定分支(dev)
 3. git merge --no-ff -m "message" dev 合并分支，可以使用git log git log --graph --pretty=oneline --abbrev-commit 查看分支历史
 git show  推出git show ：键入q
+git rebase -i HEAD~7 合并最后的七个分支
+git merge testing 合并分支
 
 ## 查看
 1. git status 显示有变更的文件/是否修改过文件
@@ -107,7 +99,7 @@ git show  推出git show ：键入q
 7. git reset HEAD book.txt  把暂存区的修改撤销，重新回到工作区。HEAD 表示最新版本
 
 
-
+## 标签
 git tag v1.0 打标签
 git log --pretty=oneline --abbrev-commit 查看历史提交记录
 git tag v0.9 f52c633 为指定哪一次的提交打标签，f52c633为commit id
@@ -115,19 +107,8 @@ git tag version1.6 -m 'version 1.6'
 git tag -d v1.0 删除标签
 git push origin v1.0 推送一个标签到远程
 git push origin --tags 推送所以未推送到远程的本地标签
+
 1.git tag -d v1.0 2.git push origin :refs/tags/v1.0  删除已经推送到远程标签：先删除本地标签，再删除远程标签
-
-git merge testing 合并分支
-
-git branch -d testing 删除分支/强行删除分支
-
-git mergetool 解决冲突
-
-git rebase -i HEAD~7 合并最后的七个分支
-
-cat  book.txt 打开txt文件
-
-git stash 保存工作区的操作，在以为可以恢复该保存的操作
 
 ## vi操作
 1. i 进入编辑模式
@@ -135,3 +116,17 @@ git stash 保存工作区的操作，在以为可以恢复该保存的操作
 3. q 退出不保存，如果有改动文件，则报错(先键入:符号)
 4. q! 强制退出，舍弃改动的内容(先键入:符号)
 5. x 保存并退出(先键入:符号)
+6. cat  book.txt 打开txt文件
+
+
+git branch -d testing 删除分支/强行删除分支
+
+git mergetool 解决冲突
+
+git stash 保存工作区的操作，在以为可以恢复该保存的操作
+
+git rm -r --cached .metadata
+
+git rm --cached book  停止追踪指定文件，但该文件会保留在工作区
+
+$ git mv [file-original] [file-renamed]  改名文件，并且将这个改名放入暂存区
