@@ -47,6 +47,7 @@
 3. git branch -a 列出所有本地分支和远程分支
 4. git branch supertramp 新建分支，但仍然停留在当前分支
 5. git branch --set-upstream-to=origin/dev dev 指定本地分支dev和远程分支origin/dev的链接
+6. git checkout --orphan hdoc 创建分支  git rm -rf . 删除分支下的文件 git commit -am "message" 提交分支 然后add/commit/push 从本地创建分支以后，使用命令pull：git pull origin hdoc:hdoc(hdoc为分支名)
 
 ## 分支操作
 1. git checkout -b dev 创建分支并切换
