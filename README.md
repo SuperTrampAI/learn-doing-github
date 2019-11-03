@@ -47,7 +47,7 @@
 3. git branch -a 列出所有本地分支和远程分支
 4. git branch supertramp 新建分支，但仍然停留在当前分支
 5. git branch --set-upstream-to=origin/dev dev 指定本地分支dev和远程分支origin/dev的链接
-6. git checkout --orphan hdoc 创建分支  git rm -rf . 删除分支下的文件 git commit -am "message" 提交分支 然后add/commit/push 从本地创建分支以后，使用命令pull：git pull origin hdoc:hdoc(hdoc为分支名)
+6. git checkout --orphan hdoc 创建分支  git rm -rf . 删除分支下的文件 git commit -am "message" 提交分支 然后add/commit/push(push命令： git push origin hdoc:hdoc) 从本地创建分支以后，使用命令pull：git pull origin hdoc:hdoc(hdoc为分支名)
 
 ## 分支操作
 1. git checkout -b dev 创建分支并切换
@@ -88,6 +88,7 @@ git merge testing 合并分支
 7. git push --force 强行推送当前分支到远程仓库，即使有冲突
 8. git push --all 推送所有分支到远程仓库
 9. git push origin master 把本地分支master推送对指定远程分支origin
+10. git push --set-upstream origin hdoc 提交分支
 
 ## 撤销
 1. git checkout -- [file] 恢复暂存区的指定文件到工作区 /丢弃工作区的修改
